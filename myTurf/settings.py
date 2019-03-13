@@ -25,6 +25,9 @@ SECRET_KEY = 'd@34v24dr*%u5-p=5$unx1__it6958b_lz@ad2lrw_f_#l&kif'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_REDIRECT_URL = 'dashboard_page'
+LOGOUT_REDIRECT_URL = 'landing_page'
+
 ALLOWED_HOSTS = []
 
 
