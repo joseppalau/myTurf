@@ -4,20 +4,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
     <title>myTurf</title>
 </head>
 <body>
 <section id="header-section">
     <header id="header">
-        <div>
+        <div class="header-div">
             <h2>Turf Control</h2>
         </div>
         <nav id="nav-bar">
             <ul id="nav-menu">
-                <li>Products</li>
-                <li>Applications</li>
-                <li>Reports</li>
-                <li>Logout</li>
+                <li><a href="">Products</a></li>
+                <li><a href="">Applications</a></li>
+                <li><a href="">Reports</a></li>
+                <li><a href="/accounts/logout/">Logout</a></li>
             </ul>
         </nav>
     </header>

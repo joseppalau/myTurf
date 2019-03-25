@@ -71,27 +71,34 @@
     color: white;
 }
 
-/*PRODUCTS SECTION*/
+/* MARKET PRODUCTS SECTION */
 
-#title{
-    margin-left:25px;
+#market-products{
+    margin-left: 25px;
+    width: 50%;
 }
 
-#user-products{
-    margin-left: 25px;
+#market-products h3{
+    border-bottom: 2px solid hsl(120, 61%, 25%); ;
+}
+
+#products-market-list{
+    display: flex;
+    justify-content: center;
+}
+
+.product-table{
     display: flex;
     flex-direction: column;
 }
 
-
-#user-products-header{
+.product-table div{
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-
-
+.title-name{
+    font-weight: bold;
+}
 
 
 

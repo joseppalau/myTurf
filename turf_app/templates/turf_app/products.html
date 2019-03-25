@@ -1,0 +1,69 @@
+{%  load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'styles/products.css' %}">
+    <title>Products</title>
+</head>
+<body>
+<section id="header-section">
+    <header id="header">
+        <div class="header-div">
+            <h2>Turf Control</h2>
+        </div>
+        <nav id="nav-bar">
+            <ul id="nav-menu">
+                <li><a href="{% url 'dashboard_page' %}">Dashboard</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">Applications</a></li>
+                <li><a href="">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="user-status">
+        <h4> Welcome {{ user.username }} </h4>
+        <div class="user-status-right">
+             <a href="">Profile</a>
+            <a href="/accounts/logout/">Logout</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="market-products">
+    <h3>Market Products</h3>
+    <div id="products-market-list">
+        <div class ="product-table"id="products-market-list-name" style="width:80%">
+            <div class="product-table-titles">
+                <p class="title-name" style="width:50%">Product</p>
+                <p class="title-name" style="width:50%">Manufacturer</p>
+            </div>
+            {% for fertiliser in fertilisers %}
+            <div class="product-table-nc">
+            <p style="width:50%" >{{ fertiliser }}</p>
+            <p style="width:50%">{{ fertiliser.manufacturer }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="product-table" id="products-market-list-status" style="width:20%">
+            <div class="product-table-titles">
+                <p class="title-name">Status</p>
+            </div>
+            {% for s in status %}
+            <div>
+                {% if s %}
+                    <p>In</p>
+                {% else %}
+                    <p>Out</p>
+                {% endif %}
+             </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

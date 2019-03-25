@@ -1,0 +1,38 @@
+#header{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background: hsl(120, 61%, 75%);
+}
+
+.header-div{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 25px;
+    align-items: center;
+    color: white;
+}
+
+#nav-bar{
+    width:50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#nav-bar ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-right: 25px;
+}
+
+#nav-bar ul li{
+    text-align: center;
+    margin-left: 10px;
+}
+
+#nav-bar ul li a{
+    text-decoration: none;
+    color: white;
+}
