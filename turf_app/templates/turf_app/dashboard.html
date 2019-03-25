@@ -1,3 +1,4 @@
+{%  extends 'turf_app/base.html' %}
 {%  load staticfiles %}
 
 <!DOCTYPE html>
@@ -7,10 +8,25 @@
     <meta charset="UTF-8">
     <title>Dashboard</title>
 </head>
-<body>
-<h1>Dashboard</h1>
-<h3> Welcome {{ user.username }} </h3>
 
-<a class="btn-logout" href="/accounts/logout">Logout</a>
+<body>
+
+    {%  block content %}
+    <h1>Dashboard</h1>
+    <h3> Welcome {{ user.username }} </h3>
+    <a class="btn-logout" href="/accounts/logout">Logout</a>
+    {%  endblock %}
+
+<main>
+    <div>
+        <div id="applications-div">
+
+        </div>
+        <div id="products-div">
+
+        </div>
+    </div>
+</main>
+
 </body>
 </html>

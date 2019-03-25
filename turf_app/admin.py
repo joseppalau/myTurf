@@ -11,7 +11,7 @@ class ManufacturerAdmin(admin.ModelAdmin):
 
 
 class DistributorAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['name', 'city', 'country']
 
     class Meta:
         model = Distributor
@@ -25,7 +25,7 @@ class FieldAdmin(admin.ModelAdmin):
 
 
 class FertiliserAdmin(admin.ModelAdmin):
-    list_display = ['N', 'P', 'K']
+    list_display = ['name', 'units', 'N', 'P', 'K', 'Mg']
 
     class Meta:
         model = Fertiliser
