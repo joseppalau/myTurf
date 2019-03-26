@@ -94,11 +94,14 @@
 
 .product-table div{
     display: flex;
+    align-items: center;
 }
 
 .title-name{
     font-weight: bold;
 }
+
+
 
 
 
