@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'styles/products.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>Products</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
 </section>
 
 <section id="market-products">
-    <h3>Market Products</h3>
+    <h3 class="title-section">Market Products</h3>
     <div id="products-market-list">
         <div class ="product-table"id="products-market-list-name" style="width:80%">
             <div class="product-table-titles">
@@ -52,19 +53,38 @@
                 <p class="title-name">Status</p>
             </div>
             {% for s in status %}
-            <div>
+            <div class="product-table-status">
                 {% if s %}
                     <p>In</p>
                 {% else %}
                     <p>Out</p>
-                    <a style="margin-left: 5px;"href="{% url 'products_page' %}"><img src="{% static 'images/mas.png' %}" alt="" width="20" height="20"></a>
+                    <div class="product-table-div-img">
+                    <img class="add-btn" src="{% static 'images/mas.png' %}" alt=" " onclick="productFormOpen(this)">
+                    </div>
                 {% endif %}
-             </div>
+            </div>
             {% endfor %}
         </div>
     </div>
+
+    <!--MODAL FORM NEW FERTILISER -->
+    <div class="modal-form" id="modal-form">
+        <div class="modal-content">
+            <div class="modal-title">
+                <span id="modal-form-close" class="close">x</span>
+                <h3>Add Your new Fertiliser </h3>
+            </div>
+            <form action="">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn-submit "id="btn-fertiliser-submit" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
 </section>
 
-
+<script src="{% static 'js/products.js' %} "></script>
 </body>
 </html>

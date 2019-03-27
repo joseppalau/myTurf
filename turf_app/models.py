@@ -23,7 +23,6 @@ class Field(models.Model):
 
 
 class Manufacturer(models.Model):
-    #user = models.ManyToManyField(User, related_name='manufacturers')
     name = models.CharField(max_length=200)
     city = models.CharField(max_length=200, blank=True, null=True)
     country = models.CharField(max_length=200, blank=True, null=True)
@@ -33,7 +32,6 @@ class Manufacturer(models.Model):
 
 
 class Distributor(models.Model):
-    #user = models.ManyToManyField(User, related_name='distributors')
     manufacturers = models.ManyToManyField(Manufacturer, related_name='distributors')
     name = models.CharField(max_length=200)
     city = models.CharField(max_length=200, null=True, blank=True)
@@ -51,9 +49,8 @@ class DistributorUser(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, related_name='products')
-    #distributor = models.ForeignKey(Distributor, on_delete=models.CASCADE, related_name='products')
     type = models.CharField(max_length=100, default='Fertilizer')  # whether it is to be used in a solid or liquid application
-    units = models.CharField(default='l', max_length=20)
+    units = models.CharField(default='l', max_length=20, blank=True)
 
     def __str__(self):
         return self.name
@@ -71,10 +68,10 @@ class Fertiliser(Product):
 
 
 class FertiliserUser(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='fertilisers')
-    distributor = models.ForeignKey(DistributorUser, on_delete=models.CASCADE, related_name='fertilisers')
-    fertiliser = models.ForeignKey(Fertiliser, on_delete=models.PROTECT, related_name='used_by')
-    quantity = models.DecimalField(max_digits=10, decimal_places=3) #amount used with all applications
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='fertilisers', blank=True)
+    distributor = models.ForeignKey(DistributorUser, on_delete=models.CASCADE, related_name='fertilisers', null=True, blank=True)
+    fertiliser = models.ForeignKey(Fertiliser, on_delete=models.PROTECT, related_name='used_by', blank=True)
+    quantity = models.DecimalField(max_digits=10, decimal_places=3, default=0) #amount used with all applications
     stock = models.DecimalField(default=0.0, max_digits=10, decimal_places=3) #amount at warehouse
     price = models.DecimalField(default=1.0, max_digits=10, decimal_places=3)
 
