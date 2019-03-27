@@ -43,8 +43,9 @@
             </div>
             {% for fertiliser in fertilisers %}
             <div class="product-table-nc">
-            <p style="width:50%" >{{ fertiliser }}</p>
-            <p style="width:50%">{{ fertiliser.manufacturer }}</p>
+            <p class="fertilisers-name" style="width:50%" >{{ fertiliser }}</p>
+            <p class="manufacturers-name" style="width:50%">{{ fertiliser.manufacturer }}</p>
+                <input class="n-inputs" type="hidden" value="{{ fertiliser.N }}">
             </div>
             {% endfor %}
         </div>
@@ -74,7 +75,7 @@
                 <span id="modal-form-close" class="close">x</span>
                 <h3>Add Your new Fertiliser </h3>
             </div>
-            <form action="">
+            <form id="form-new-product" action="">
                 {% csrf_token %}
                 {{form.as_p}}
                 <button class="btn-submit "id="btn-fertiliser-submit" type="submit">Submit</button>
