@@ -25,7 +25,7 @@ class FieldAdmin(admin.ModelAdmin):
 
 
 class FertiliserAdmin(admin.ModelAdmin):
-    list_display = ['name', 'units', 'N', 'P', 'K', 'Mg']
+    list_display = ['name', 'package', 'type', 'units', 'N', 'P', 'K', 'Mg']
 
     class Meta:
         model = Fertiliser

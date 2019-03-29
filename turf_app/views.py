@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import Fertiliser, FertiliserUser
 from .forms import FertiliserUserForm
+import json
 
 
 def landing_page(request):
@@ -16,19 +18,29 @@ def dashboard_page(request):
 def products_page(request):
     form = FertiliserUserForm()
     fertilisers = Fertiliser.objects.all()
-    status = []
+    status_list = []
     for f in fertilisers:
         if len(f.used_by.filter(user=request.user)) > 0:
-            status.append(True)
+            status_list.append('In')
             print(True)
         else:
-            status.append(False)
+            status_list.append('Out')
             print(False)
-    return render(request, 'turf_app/products.html', {'fertilisers': fertilisers, 'status': status,
-                                                      'form': form})
+    return render(request, 'turf_app/market.html', {'fertilisers': fertilisers, 'status_list': status_list, 'form': form})
 
 
 def add_user_fertiliser(request):
-    pass
+    if request.method == 'POST':
+        user = request.user
+        fertiliser = Fertiliser.objects.get(id=request.POST.get('id'))
+        price = request.POST.get('price')
+        stock = request.POST.get('quantity')
+        new_user_fertiliser = FertiliserUser.objects.create(user=user, fertiliser=fertiliser, price=price, stock=stock)
+        new_user_fertiliser.save()
+        status = 'In'
+        json_response = {'status_fertiliser': status}
+        return HttpResponse(json.dumps(json_response), content_type='application/json')
+    else:
+        return HttpResponse(json.dumps({'Message': 'Nothing to return'}))
 
 # Create your views here.

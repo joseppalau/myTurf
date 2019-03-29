@@ -49,8 +49,9 @@ class DistributorUser(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, related_name='products')
-    type = models.CharField(max_length=100, default='Fertilizer')  # whether it is to be used in a solid or liquid application
-    units = models.CharField(default='l', max_length=20, blank=True)
+    package = models.CharField(max_length=100, null=True, blank=True)
+    quantity_per_package = models.DecimalField(default=0.0, max_digits=10, decimal_places=3, null=True, blank=True)
+    units = models.CharField(default='L', max_length=20)
 
     def __str__(self):
         return self.name
@@ -61,6 +62,7 @@ class Fertiliser(Product):
     P = models.DecimalField(max_digits=10, decimal_places=3)
     K = models.DecimalField(max_digits=10, decimal_places=3)
     Mg = models.DecimalField(max_digits=10, decimal_places=3)
+    type = models.CharField(default='Liquid', max_length=50)
     quantity = models.DecimalField(default=0.0, max_digits=10, decimal_places=3) # amount of use by users
 
     def __str__(self):
@@ -71,7 +73,6 @@ class FertiliserUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='fertilisers', blank=True)
     distributor = models.ForeignKey(DistributorUser, on_delete=models.CASCADE, related_name='fertilisers', null=True, blank=True)
     fertiliser = models.ForeignKey(Fertiliser, on_delete=models.PROTECT, related_name='used_by', blank=True)
-    quantity = models.DecimalField(max_digits=10, decimal_places=3, default=0) #amount used with all applications
     stock = models.DecimalField(default=0.0, max_digits=10, decimal_places=3) #amount at warehouse
     price = models.DecimalField(default=1.0, max_digits=10, decimal_places=3)
 

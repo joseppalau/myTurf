@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'styles/products.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/market.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>Products</title>
 </head>
@@ -17,7 +17,8 @@
         <nav id="nav-bar">
             <ul id="nav-menu">
                 <li><a href="{% url 'dashboard_page' %}">Dashboard</a></li>
-                <li><a href="">Products</a></li>
+                <li><a href="">Market</a></li>
+                <li><a href="">Warehouse</a></li>
                 <li><a href="">Applications</a></li>
                 <li><a href="">Reports</a></li>
             </ul>
@@ -43,9 +44,15 @@
             </div>
             {% for fertiliser in fertilisers %}
             <div class="product-table-nc">
+            <p class="fertilisers-ids" style="display: none">{{ fertiliser.id }}</p>
             <p class="fertilisers-name" style="width:50%" >{{ fertiliser }}</p>
             <p class="manufacturers-name" style="width:50%">{{ fertiliser.manufacturer }}</p>
-                <input class="n-inputs" type="hidden" value="{{ fertiliser.N }}">
+            <p class="types" style="display: none">{{ fertiliser.type }}</p>
+            <p class="units" style="display: none">{{ fertiliser.units }}</p>
+            <p class="n-inputs" style="display: none">{{ fertiliser.N }}</p>
+            <p class="p-inputs" style="display: none">{{ fertiliser.P }}</p>
+            <p class="k-inputs" style="display: none">{{ fertiliser.K }}</p>
+            <p class="mg-inputs" style="display: none">{{ fertiliser.Mg }}</p>
             </div>
             {% endfor %}
         </div>
@@ -53,16 +60,12 @@
             <div class="product-table-titles">
                 <p class="title-name">Status</p>
             </div>
-            {% for s in status %}
+            {% for status in status_list %}
             <div class="product-table-status">
-                {% if s %}
-                    <p>In</p>
-                {% else %}
-                    <p>Out</p>
-                    <div class="product-table-div-img">
+                <p class="status_fertiliser">{{ status }}</p>
+                <div class="product-table-div-img">
                     <img class="add-btn" src="{% static 'images/mas.png' %}" alt=" " onclick="productFormOpen(this)">
-                    </div>
-                {% endif %}
+                </div>
             </div>
             {% endfor %}
         </div>
@@ -86,6 +89,6 @@
 
 </section>
 
-<script src="{% static 'js/products.js' %} "></script>
+<script src="{% static 'js/market.js' %} "></script>
 </body>
 </html>
