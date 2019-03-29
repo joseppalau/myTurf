@@ -15,7 +15,7 @@ def dashboard_page(request):
     return render(request, 'turf_app/dashboard.html', {'user': user, 'fertilisers': fertilisers})
 
 
-def products_page(request):
+def market_page(request):
     form = FertiliserUserForm()
     fertilisers = Fertiliser.objects.all()
     status_list = []

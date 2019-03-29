@@ -1,59 +1,57 @@
-//ADD PRODUCT FROM MARKET FOR USER AVAILABILITY
+//load status color
+let status_list = jQuery.makeArray($('.status_fertiliser'))
+for (let i = 0; i < status_list.length; i++) {
+    console.log(status_list[i].innerHTML == 'In')
+    if (status_list[i].innerHTML == 'In'){
+        status_list[i].style.color = 'hsl(120, 61%, 25%)'
+    }
+}
+
+//ADD PRODUCT (PURCHASE) FROM MARKET TO USER WAREHOUSE
 //open the modal form
 let fertiliser_id;
 let btnIndex;
 function productFormOpen(btn){
-    let btnList = Array.from(document.getElementsByClassName('add-btn'))
+    let btnList = jQuery.makeArray($('.add-btn'))
     btnIndex = btnList.indexOf(btn)
     console.log(btnIndex)
     $('#modal-form').show()
 
-    // Fertiliser name to be put in the form
-    let fertilisers_idsList = document.getElementsByClassName('fertilisers-ids')
-    let fertilisersList = document.getElementsByClassName('fertilisers-name')
-    let manufacturersList = document.getElementsByClassName('manufacturers-name')
-    let typesList = document.getElementsByClassName('types')
-    let unitsList = document.getElementsByClassName('units')
-    let nInputsList = document.getElementsByClassName('n-inputs')
-    let pInputsList = document.getElementsByClassName('p-inputs')
-    let kInputsList = document.getElementsByClassName('k-inputs')
-    let mgInputsList = document.getElementsByClassName('mg-inputs')
+    // Fertiliser data list from html
+    let fertilisers_idsList = $('.fertilisers-ids')
+    let fertilisersList = $('.fertilisers-name')
+    let manufacturersList = $('.manufacturers-name')
+    let typesList = $('.types')
+    let unitsList = $('.units')
+    let nInputsList = $('.n-inputs')
+    let pInputsList = $('.p-inputs')
+    let kInputsList = $('.k-inputs')
+    let mgInputsList = $('.mg-inputs')
 
     console.log(fertilisersList[btnIndex].innerHTML)
     console.log(typesList[btnIndex].innerHTML)
 
-    // Manufacturer name to be put in the form
-    let form_name = document.getElementById('id_name')
-    let form_manufacturer = document.getElementById('id_manufacturer')
-    let form_type = document.getElementById('id_type')
-    let form_unit = document.getElementById('id_units')
-    let form_N = document.getElementById('id_N')
-    let form_P = document.getElementById('id_P')
-    let form_K = document.getElementById('id_K')
-    let form_Mg = document.getElementById('id_Mg')
+    // Form inputs
+    $('#id_name').val(fertilisersList[btnIndex].innerHTML)
+    $('#id_manufacturer').val(manufacturersList[btnIndex].innerHTML)
+    $('#id_type').val(typesList[btnIndex].innerHTML)
+    $('#id_units').val(unitsList[btnIndex].innerHTML)
+    $('#id_N').val(nInputsList[btnIndex].innerHTML)
+    $('#id_P').val(pInputsList[btnIndex].innerHTML)
+    $('#id_K').val(kInputsList[btnIndex].innerHTML)
+    $('#id_Mg').val(mgInputsList[btnIndex].innerHTML)
 
     fertiliser_id = fertilisers_idsList[btnIndex].innerHTML
-    form_name.value = fertilisersList[btnIndex].innerHTML
-    form_manufacturer.value = manufacturersList[btnIndex].innerHTML
-    form_type.value = typesList[btnIndex].innerHTML
-    form_unit.value = unitsList[btnIndex].innerHTML
-    form_N.value = nInputsList[btnIndex].innerHTML
-    form_P.value = pInputsList[btnIndex].innerHTML
-    form_K.value = kInputsList[btnIndex].innerHTML
-    form_Mg.value = mgInputsList[btnIndex].innerHTML
-
-    console.log(form_name.value)
-    let form = $('#form-new-product')
-    console.log(form)
-
 }
 
+// listening form button
 $('#btn-fertiliser-submit').on('click', function(event){
     event.preventDefault();
     add_user_fertiliser()
     $('#modal-form').hide()
 })
 
+//ajax function to send data to server and get back response from it
 function add_user_fertiliser(){
     $.ajax({
         url: '/market/add-user-fertiliser/',
@@ -64,8 +62,9 @@ function add_user_fertiliser(){
             'price': $('#id_price').val(),
             },
         success: function(json){
-                let status = document.getElementsByClassName('status_fertiliser')[btnIndex]
+                let status = $('.status_fertiliser')[btnIndex]
                 status.innerHTML = json.status_fertiliser
+                status.style.color = 'hsl(120, 61%, 25%)'
             } ,
         error: function(xhr, errmsg, err){
             console.log(status.xhr + ":" + xhr.responseText)
@@ -78,10 +77,6 @@ function add_user_fertiliser(){
 $('#modal-form-close').on('click', function(){
     $('#modal-form').hide()
 })
-
-
-
-
 
 
 //CSRF-TOKEN CODE FOR AJAX

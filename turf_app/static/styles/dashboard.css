@@ -81,17 +81,29 @@
     margin-left: 25px;
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
-
 
 #user-products-header{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 2px solid hsl(120, 61%, 25%);
+}
+
+.user-product-table{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-product-table div{
+    display: flex;
     align-items: center;
 }
 
-
-
+.title-row{
+    font-weight: bold;
+}
 
 
 
