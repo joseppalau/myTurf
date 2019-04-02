@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static 'styles/dashboard.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <meta charset="UTF-8">
     <title>Dashboard</title>
 </head>
@@ -39,7 +40,7 @@
     <section id="user-products">
         <div id="user-products-header">
             <h3 style="margin-right: 5px;">My Products</h3>
-            <a style="margin-left: 5px;"href="{% url 'market_page' %}"><img src="{%  static 'images/mas.png' %}" alt="" width="30" height="30"></a>
+            <a class="add-btn" style="margin-left: 5px;"href="{% url 'market_page' %}"><img src="{%  static 'images/mas.png' %}" alt="" width="30" height="30"></a>
         </div>
         <div class ="user-product-table"id="products-user-list-name" style="width:80%">
             <div class="user-product-table-titles">
@@ -57,13 +58,38 @@
         </div>
     </section>
 
-    <section id="application">
-        <div id="applications-div">
+    <section id="user-applications">
+        <div id="user-applications-header">
+            <h3 style="margin-right: 5px;">My Applications</h3>
+            <img id="add-btn-applications" class="add-btn" src="{% static 'images/mas.png' %}" alt="" width="30" height="30">
+        </div>
+        <div class="user-applications-table">
 
         </div>
+
+        <!--MODAL FORM NEW APPLICATION -->
+        <div class="modal-form" id="modal-form">
+            <div class="modal-content">
+                <div class="modal-title">
+                    <span id="modal-form-close" class="close">x</span>
+                    <h3>New Application </h3>
+                </div>
+                <form id="form-new-application" action="">
+                    {% csrf_token %}
+                    <select name="fields" id="fields-dropdown">
+                    {% for field in user.fields.all %}
+                        <option value={{ field.name }}>{{ field.name }}</option>
+                    {% endfor %}
+                    </select>
+                    <button class="btn-submit "id="btn-applications-submit" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
     </section>
 
     </main>
 
+<script src="{% static 'js/dashboard.js' %} "></script>
 </body>
 </html>

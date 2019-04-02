@@ -1,4 +1,6 @@
 from django import forms
+from turf_app.models import Field
+from django.contrib.auth.models import User
 
 
 class FertiliserUserForm(forms.Form):
@@ -12,6 +14,12 @@ class FertiliserUserForm(forms.Form):
     P = forms.DecimalField(widget=forms.TextInput(attrs={'readonly': True}))
     K = forms.DecimalField(widget=forms.TextInput(attrs={'readonly': True}))
     Mg = forms.DecimalField(widget=forms.TextInput(attrs={'readonly': True}))
+
+
+LIST_FIELDS = list(Field.objects.all())
+
+class ApplicationUserForm(forms.Form):
+    field = forms.CharField(max_length=100, widget=forms.Select(choices=LIST_FIELDS))
 
 
 

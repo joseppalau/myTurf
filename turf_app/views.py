@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Fertiliser, FertiliserUser
-from .forms import FertiliserUserForm
+from .forms import FertiliserUserForm, ApplicationUserForm
 import json
 
 
@@ -12,6 +12,7 @@ def landing_page(request):
 def dashboard_page(request):
     user = request.user
     fertilisers = FertiliserUser.objects.all()
+    #form = ApplicationUserForm()
     return render(request, 'turf_app/dashboard.html', {'user': user, 'fertilisers': fertilisers})
 
 
@@ -42,5 +43,8 @@ def add_user_fertiliser(request):
         return HttpResponse(json.dumps(json_response), content_type='application/json')
     else:
         return HttpResponse(json.dumps({'Message': 'Nothing to return'}))
+
+
+
 
 # Create your views here.
