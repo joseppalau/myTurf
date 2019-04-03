@@ -78,9 +78,19 @@
                     {% csrf_token %}
                     <select name="fields" id="fields-dropdown">
                     {% for field in user.fields.all %}
-                        <option value={{ field.name }}>{{ field.name }}</option>
+                        <option value={{ field.id }}>{{ field.name }}</option>
                     {% endfor %}
                     </select>
+                    <select name="type" id="type-dropdown">
+                        <option value="Liquid">Liquid</option>
+                        <option value="Solid">Solid</option>
+                    </select>
+                    <div id="application-inputs">
+                        <div id="volumQuantity-div">
+                            <label for="volumQuantity">Volum (L):</label>
+                            <input id="volumQuantity" type="text">
+                        </div>
+                    </div>
                     <button class="btn-submit "id="btn-applications-submit" type="submit">Submit</button>
                 </form>
             </div>

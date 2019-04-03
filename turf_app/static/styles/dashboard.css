@@ -174,7 +174,10 @@
     display: none;
 }
 
-
+#form-new-application{
+    display: flex;
+    flex-direction: column;
+}
 
 
 
