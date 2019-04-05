@@ -86,9 +86,23 @@
                         <option value="Solid">Solid</option>
                     </select>
                     <div id="application-inputs">
+                        <div>
+                        <label for="scheduled-date"></label>
+                        <input id="scheduled-date" type="date">
+                        </div>
                         <div id="volumQuantity-div">
                             <label for="volumQuantity">Volum (L):</label>
                             <input id="volumQuantity" type="text">
+                        </div>
+                        <div class="product-select-div-group" id="product-selection">
+                            <div class="product-select-div">
+                                <label for="">Product:</label>
+                                <select name="product-dropdown" id="" style="width:150px;">
+                                </select>
+                                <label for="">Quantity</label>
+                                <input type="text">
+                                <img id="btn-add-item" class="btn-add-application" src="{% static 'images/mas.png' %}" alt="" width="20" height="20">
+                            </div>
                         </div>
                     </div>
                     <button class="btn-submit "id="btn-applications-submit" type="submit">Submit</button>

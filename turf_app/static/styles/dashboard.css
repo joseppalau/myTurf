@@ -112,8 +112,23 @@
 }
 
 /* Application form */
+#form-new-application{
+    display: flex;
+    flex-direction: column;
+}
+
+.product-select-div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 #fields-dropdown{
     width: 100px;
+}
+
+#btn-add-item, #btn-delete-item{
+    cursor:pointer;
 }
 
 
@@ -174,10 +189,9 @@
     display: none;
 }
 
-#form-new-application{
-    display: flex;
-    flex-direction: column;
-}
+
+/*NEW APPLICATION*/
+
 
 
 

@@ -11,7 +11,7 @@ def landing_page(request):
 
 def dashboard_page(request):
     user = request.user
-    fertilisers = FertiliserUser.objects.all()
+    fertilisers = user.fertilisers.all()
     #form = ApplicationUserForm()
     return render(request, 'turf_app/dashboard.html', {'user': user, 'fertilisers': fertilisers})
 
