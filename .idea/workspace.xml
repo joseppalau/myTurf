@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c772ae1-78c1-4241-86a4-0270b6324036" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/myTurf.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/myTurf.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myTurf/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myTurf/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myTurf/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myTurf/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turf_app/static/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/static/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/static/styles/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/static/styles/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/static/styles/landing_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/static/styles/landing_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/templates/turf_app/landing_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/templates/turf_app/landing_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/templates/turf_app/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/templates/turf_app/market.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turf_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +15,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.3774417">
+    <splitter split-orientation="horizontal" split-proportion="0.43289226">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -105,7 +90,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="534">
+                <state relative-caret-position="458">
                   <caret line="103" column="149" selection-start-line="103" selection-start-column="149" selection-end-line="103" selection-end-column="149" />
                 </state>
               </provider>
@@ -145,8 +130,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/turf_app/static/js/dashboard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="140">
-                  <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+                <state relative-caret-position="305">
+                  <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
                   <folding>
                     <element signature="n#style#0;n#select#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
@@ -157,7 +142,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/turf_app/static/js/market.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="331">
+                <state relative-caret-position="364">
                   <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="49" />
                 </state>
               </provider>
@@ -193,8 +178,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/turf_app/static/styles/market.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4394">
-                  <caret line="169" column="18" selection-start-line="116" selection-end-line="171" />
+                <state relative-caret-position="4004">
+                  <caret line="154" column="12" lean-forward="true" selection-start-line="154" selection-start-column="12" selection-end-line="154" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -367,18 +352,18 @@
       <workItem from="1553190133132" duration="71669000" />
       <workItem from="1554222096706" duration="6257000" />
       <workItem from="1554286100654" duration="13227000" />
-      <workItem from="1554454185299" duration="10682000" />
+      <workItem from="1554454185299" duration="18753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118070000" />
+    <option name="totallyTimeSpent" value="126141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15495208" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15495208" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -392,7 +377,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26646402" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26646402" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -524,13 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/landing_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/turf_app/static/styles/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="962">
@@ -545,13 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/turf_app/static/styles/market.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4394">
-          <caret line="169" column="18" selection-start-line="116" selection-end-line="171" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/turf_app/static/styles/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -559,24 +530,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/turf_app/static/js/market.js">
+    <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="49" />
+        <state relative-caret-position="458">
+          <caret line="103" column="149" selection-start-line="103" selection-start-column="149" selection-end-line="103" selection-end-column="149" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/landing_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="103" column="149" selection-start-line="103" selection-start-column="149" selection-end-line="103" selection-end-column="149" />
+        <state relative-caret-position="416">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turf_app/static/styles/market.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4004">
+          <caret line="154" column="12" lean-forward="true" selection-start-line="154" selection-start-column="12" selection-end-line="154" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turf_app/static/js/market.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/turf_app/static/js/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+        <state relative-caret-position="305">
+          <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
           <folding>
             <element signature="n#style#0;n#select#0;n#div#0;n#!!top" expanded="true" />
           </folding>
