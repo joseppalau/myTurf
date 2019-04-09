@@ -97,7 +97,7 @@
                         <div class="product-select-div-group" id="product-selection">
                             <div class="product-select-div">
                                 <label for="">Product:</label>
-                                <select name="product-dropdown" id="" style="width:150px;">
+                                <select name="product-dropdown" id="product-select-1" style="width:150px;">
                                 </select>
                                 <label for="">Quantity</label>
                                 <input type="text">
@@ -114,6 +114,12 @@
 
     </main>
 
+<script>
+    var liquidFertilisersNames = {{ liquidFertilisersNames|safe }}
+    var liquidFertilisersIds = {{ liquidFertilisersIds|safe }}
+    var solidFertilisersNames = {{ solidFertilisersNames|safe }}
+    var solidFertilisersIds = {{ solidFertilisersIds|safe }}
+</script>
 <script src="{% static 'js/dashboard.js' %} "></script>
 </body>
 </html>

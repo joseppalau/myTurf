@@ -12,8 +12,15 @@ def landing_page(request):
 def dashboard_page(request):
     user = request.user
     fertilisers = user.fertilisers.all()
-    #form = ApplicationUserForm()
-    return render(request, 'turf_app/dashboard.html', {'user': user, 'fertilisers': fertilisers})
+    liquidFertilisersNames = json.dumps([fertiliser.fertiliser.name for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Liquid'])
+    liquidFertilisersIds = json.dumps([fertiliser.id for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Liquid'])
+    solidFertilisersNames = json.dumps([fertiliser.fertiliser.name for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Granulate'])
+    solidFertilisersIds = json.dumps([fertiliser.id for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Granulate'])
+
+    return render(request, 'turf_app/dashboard.html', {'user': user, 'fertilisers': fertilisers, 'liquidFertilisersNames': liquidFertilisersNames,
+                                                       'liquidFertilisersIds': liquidFertilisersIds,
+                                                       'solidFertilisersNames': solidFertilisersNames,
+                                                       'solidFertilisersIds': solidFertilisersIds})
 
 
 def market_page(request):

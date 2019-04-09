@@ -1,4 +1,3 @@
-
 /*Open and close modal form */
 $('#add-btn-applications').on('click', function(){
     $('#modal-form').show()
@@ -9,7 +8,6 @@ $('#modal-form-close').on('click', function(){
 })
 
 /*APPLICATION FORM SCRIPT*/
-
 $('#type-dropdown').change(function(){
     if($('#volumQuantity-div').css.display == 'none'){
         $('#volumQuantity-div').show()
@@ -40,22 +38,21 @@ function addProductSelectDiv() {
     newDeleteBtnListener('btn-delete-item')
 }
 
-//$('#btn-delete-item').on('click', deleteProductSelection)
-
 function deleteProductSelection(){
     let list_psdg = jQuery.makeArray($('.product-select-div')) // list from product-select-div-group class
     console.log(list_psdg.length)
     $('.product-select-div')[list_psdg.length - 1].remove()
     list_psdg = list_psdg.slice(0,list_psdg.length - 1)
     console.log(list_psdg.length)
-    var addImg = document.createElement('img')
+
+    let addImg = document.createElement('img')
     addImg.src ="/static/images/mas.png"
     addImg.id = 'btn-add-item'
     addImg.width = 20
     addImg.height = 20
     addImg.class = "btn-add-application"
 
-    var addImgDel = document.createElement('img')
+    let addImgDel = document.createElement('img')
     addImgDel.src ="/static/images/delete.png"
     addImgDel.id = 'btn-delete-item'
     addImgDel.width = 20
@@ -68,7 +65,6 @@ function deleteProductSelection(){
         $('.product-select-div')[list_psdg.length - 1].append(addImgDel)
         newDeleteBtnListener('btn-delete-item')
     }
-
 }
 
 function newBtnListener(id){
@@ -77,6 +73,27 @@ function newBtnListener(id){
 
 function newDeleteBtnListener(id){
     document.getElementById(id).addEventListener("click", deleteProductSelection)
-
 }
+
+// select options depending on either liquid or solid application
+
+
+
+$('#type-dropdown').change(function(){
+    var select = $('#product-select-1')
+    if($('#type-dropdown').val() == 'Liquid'){
+        for(let i = 0; i < liquidFertilisersNames.length; i++ ){
+            select.append('<option value=\"' + liquidFertilisersIds[i] + '\">' + liquidFertilisersNames[i] + '</option>')
+        }
+    } else{
+         for(let i = 0; i < solidFertilisersNames.length; i++ ){
+            select.append('<option value=\"' + solidFertilisersIds[i] + '\">' + solidFertilisersNames[i] + '</option>')
+        }
+    }
+})
+
+
+console.log(solidFertilisersNames.length)
+
+
 

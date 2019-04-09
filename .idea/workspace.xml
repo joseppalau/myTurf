@@ -4,6 +4,8 @@
     <list default="true" id="7c772ae1-78c1-4241-86a4-0270b6324036" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turf_app/static/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/static/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turf_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/turf_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +17,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43289226">
+    <splitter split-orientation="horizontal" split-proportion="0.4889729">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -33,7 +35,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/market.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1118">
+                <state relative-caret-position="193">
                   <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
                 </state>
               </provider>
@@ -52,21 +54,9 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/turf_app/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="182">
-                  <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-                  <folding>
-                    <element signature="e#0#35#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/turf_app/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2210">
+                <state relative-caret-position="488">
                   <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
@@ -90,8 +80,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="458">
-                  <caret line="103" column="149" selection-start-line="103" selection-start-column="149" selection-end-line="103" selection-end-column="149" />
+                <state relative-caret-position="943">
+                  <caret line="120" column="60" selection-start-line="120" selection-start-column="60" selection-end-line="120" selection-end-column="60" />
                 </state>
               </provider>
             </entry>
@@ -119,6 +109,18 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/turf_app/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="214">
+                  <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/landing_page.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="416">
@@ -130,8 +132,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/turf_app/static/js/dashboard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="305">
-                  <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+                <state relative-caret-position="145">
+                  <caret line="81" column="38" lean-forward="true" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
                   <folding>
                     <element signature="n#style#0;n#select#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
@@ -221,9 +223,9 @@
         <option value="$PROJECT_DIR$/turf_app/static/styles/market.css" />
         <option value="$PROJECT_DIR$/turf_app/forms.py" />
         <option value="$PROJECT_DIR$/turf_app/models.py" />
-        <option value="$PROJECT_DIR$/turf_app/views.py" />
         <option value="$PROJECT_DIR$/turf_app/templates/turf_app/market.html" />
         <option value="$PROJECT_DIR$/turf_app/static/styles/dashboard.css" />
+        <option value="$PROJECT_DIR$/turf_app/views.py" />
         <option value="$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html" />
         <option value="$PROJECT_DIR$/turf_app/static/js/dashboard.js" />
       </list>
@@ -352,12 +354,12 @@
       <workItem from="1553190133132" duration="71669000" />
       <workItem from="1554222096706" duration="6257000" />
       <workItem from="1554286100654" duration="13227000" />
-      <workItem from="1554454185299" duration="18753000" />
+      <workItem from="1554454185299" duration="32397000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126141000" />
+    <option name="totallyTimeSpent" value="139785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -455,39 +457,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/market.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1118">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/turf_app/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="676">
           <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/turf_app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/turf_app/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2210">
-          <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -530,13 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="103" column="149" selection-start-line="103" selection-start-column="149" selection-end-line="103" selection-end-column="149" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/landing_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -558,10 +526,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/market.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turf_app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turf_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/turf_app/templates/turf_app/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="120" column="60" selection-start-line="120" selection-start-column="60" selection-end-line="120" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/turf_app/static/js/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+        <state relative-caret-position="145">
+          <caret line="81" column="38" lean-forward="true" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#select#0;n#div#0;n#!!top" expanded="true" />
           </folding>
