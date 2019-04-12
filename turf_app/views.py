@@ -16,7 +16,6 @@ def dashboard_page(request):
     liquidFertilisersIds = json.dumps([fertiliser.id for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Liquid'])
     solidFertilisersNames = json.dumps([fertiliser.fertiliser.name for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Granulate'])
     solidFertilisersIds = json.dumps([fertiliser.id for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Granulate'])
-
     return render(request, 'turf_app/dashboard.html', {'user': user, 'fertilisers': fertilisers, 'liquidFertilisersNames': liquidFertilisersNames,
                                                        'liquidFertilisersIds': liquidFertilisersIds,
                                                        'solidFertilisersNames': solidFertilisersNames,
@@ -50,6 +49,26 @@ def add_user_fertiliser(request):
         return HttpResponse(json.dumps(json_response), content_type='application/json')
     else:
         return HttpResponse(json.dumps({'Message': 'Nothing to return'}))
+
+
+def add_user_application(request):
+    if request.method == 'POST':
+        user = request.user
+        field_id = request.POST.get('field_id')
+        type = request.POST.get('type')
+        date = request.POST.get('date')
+        if type == 'Liquid':
+            volum = request.POST.get('volum')
+        products = request.POST.getlist('products[]')
+        print(field_id)
+        print(type)
+        print(date)
+        print(volum)
+        print(products)
+
+    return HttpResponse(json.dumps({'Message': 'Nothing to return'}))
+
+
 
 
 

@@ -78,7 +78,7 @@ function addProductSelectDiv() {
         '                                <select name="product-dropdown-' + countProducts.toString() + '" id="product-select-' + countProducts.toString() + '" style="width:150px;">\n' +
         '                                </select>\n' +
         '                                <label for="">Quantity</label>\n' +
-        '                                <input type="text">\n' +
+        '                                <input type="text" + id="quantity-product-"' + countProducts.toString() + '>\n' +
         '                                <img id="btn-add-item" class="btn-add-application" src="/static/images/mas.png" alt="" width="20" height="20">\n' +
         '                                <img id="btn-delete-item" class="btn-delete-application" src="/static/images/delete.png" alt="" width="20" height="20">\n' +
         '                            </div>')
@@ -118,7 +118,103 @@ function newDeleteBtnListener(id){
     document.getElementById(id).addEventListener("click", deleteProductSelection)
 }
 
+let productList = []
 
+$('#btn-applications-submit').on('click', function(event){
+    event.preventDefault()
+    for( let i = 1; i <= countProducts; i++) {
+        let n = i.toString()
+        productList.push([$('#product-select-' + n).val(), $('#quantity-product-' + n).val()])
+    }
+    send_application_data()
+    $('#modal-form').hide()
+    console.log(productList)
+})
+
+
+//ajax function to send data to server and get back response from it
+function send_application_data(){
+    $.ajax({
+        url: '/add-user-application/',
+        type: 'POST',
+        data: {
+            'field_id': $('#fields-dropdown').val(),
+            'type': $('#type-dropdown').val(),
+            'date': $('#scheduled-date').val(),
+            'volum': $('#volumQuantity').val(),
+            'products': productList
+            },
+        success: function(){
+
+                alert('aplication sent')
+            } ,
+        error: function(xhr, errmsg, err){
+            console.log(status.xhr + ":" + xhr.responseText)
+        } ,
+    })
+}
+
+
+
+
+
+
+
+//CSRF-TOKEN CODE FOR AJAX
+$(function() {
+
+    // This function gets cookie with a given name
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    /*
+    The functions below will create a header with csrftoken
+    */
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    function sameOrigin(url) {
+        // test that a given url is a same-origin URL
+        // url could be relative or scheme relative or absolute
+        var host = document.location.host; // host + port
+        var protocol = document.location.protocol;
+        var sr_origin = '//' + host;
+        var origin = protocol + sr_origin;
+        // Allow absolute or scheme relative URLs to same origin
+        return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+            (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+            // or any other URL that isn't scheme relative or absolute i.e relative.
+            !(/^(\/\/|http:|https:).*/.test(url));
+    }
+
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)) {
+                // Send the token to same-origin, relative URLs only.
+                // Send the token only if the method warrants CSRF protection
+                // Using the CSRFToken value acquired earlier
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+});
 
 
 

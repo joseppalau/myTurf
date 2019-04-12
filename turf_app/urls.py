@@ -7,5 +7,6 @@ urlpatterns = [
     path('dashboard/', views.dashboard_page, name='dashboard_page'),
     path('market/', views.market_page, name='market_page'),
     path('market/add-user-fertiliser/', views.add_user_fertiliser, name='add_user_fertiliser'),
+    path('add-user-application/', views.add_user_application, name='add_user_application'),
 ]
 
