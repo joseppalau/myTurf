@@ -59,11 +59,12 @@ def add_user_application(request):
         date = request.POST.get('date')
         if type == 'Liquid':
             volum = request.POST.get('volum')
-        products = request.POST.getlist('products[]')
+        products = request.POST.get('products')
         print(field_id)
         print(type)
         print(date)
-        print(volum)
+        if type == 'Liquid':
+           print(volum)
         print(products)
 
     return HttpResponse(json.dumps({'Message': 'Nothing to return'}))

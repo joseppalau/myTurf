@@ -78,7 +78,7 @@ function addProductSelectDiv() {
         '                                <select name="product-dropdown-' + countProducts.toString() + '" id="product-select-' + countProducts.toString() + '" style="width:150px;">\n' +
         '                                </select>\n' +
         '                                <label for="">Quantity</label>\n' +
-        '                                <input type="text" + id="quantity-product-"' + countProducts.toString() + '>\n' +
+        '                                <input type="text" + id="quantity-product-' + countProducts.toString() + '">\n' +
         '                                <img id="btn-add-item" class="btn-add-application" src="/static/images/mas.png" alt="" width="20" height="20">\n' +
         '                                <img id="btn-delete-item" class="btn-delete-application" src="/static/images/delete.png" alt="" width="20" height="20">\n' +
         '                            </div>')
@@ -142,7 +142,7 @@ function send_application_data(){
             'type': $('#type-dropdown').val(),
             'date': $('#scheduled-date').val(),
             'volum': $('#volumQuantity').val(),
-            'products': productList
+            'products': JSON.stringify(productList)
             },
         success: function(){
 
