@@ -1,22 +1,27 @@
 var countProducts = 1 //it will count products being added or deleted
 var productSelectDiv = jQuery.makeArray($('.product-select-div')) // it will save products
+var countOpens = 0
 
 //open form
-$('#add-btn-applications').on('click', function(){
+$('#add-btn-applications').on('click', function() {
     $('#modal-form').show()
+    countOpens++
+    if (countOpens > 1) {
+        if (countProducts > 1) {
+            for (let i = countProducts - 1; i > 0; i--) {
+                productSelectDiv[i].remove()
+            }
+        }
+        $('#quantity-product-1').val('')
+        productSelectDiv[0].append(addImg)
+        countProducts = 1
+        newBtnListener('btn-add-item')
+    }
 })
 
 //close form
 $('#modal-form-close').on('click', function(){
     $('#modal-form').hide()
-    if(countProducts > 1){
-        for (let i = countProducts - 1; i > 0; i--) {
-            productSelectDiv[i].remove()
-        }
-    }
-    productSelectDiv[0].append(addImg)
-    countProducts = 1
-    newBtnListener('btn-add-item')
 
 })
 
@@ -144,8 +149,12 @@ function send_application_data(){
             'volum': $('#volumQuantity').val(),
             'products': JSON.stringify(productList)
             },
-        success: function(){
-
+        success: function(json){
+                $('#application-table').append('<div class="applications-table-nc">\n' +
+                '<p class="standard-row" style="width:40%" >' + json.field + '</p>\n' +
+                '<p class="standard-row" style="width:40%" >' + json.sheduled + '</p>\n' +
+                '<p class="standard-row" style="width:20%" >' + json.type_ + '</p>\n' +
+                '</div>')
                 alert('aplication sent')
             } ,
         error: function(xhr, errmsg, err){

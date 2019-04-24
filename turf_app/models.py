@@ -77,20 +77,20 @@ class FertiliserUser(models.Model):
     price = models.DecimalField(default=1.0, max_digits=10, decimal_places=3)
 
 
-class FertiliserInUse(models.Model):
-    fertiliser = models.ForeignKey(FertiliserUser, null=True, on_delete=models.SET_NULL, related_name='actions')
-    quantity = models.DecimalField(max_digits=10, decimal_places=3)
-
-
 class Application(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='applications')
     field = models.ForeignKey(Field, on_delete=models.CASCADE, related_name='applications')
     type = models.CharField(max_length=50)
     units = models.CharField(max_length=20, default='l')
     quantity = models.DecimalField(max_digits=10, decimal_places=3)
-    products = models.ManyToManyField(FertiliserInUse, related_name='applications')
     scheduled_date = models.DateTimeField(default=timezone.now)
     done_date = models.DateTimeField(null=True, blank=True)
+
+
+class FertiliserInUse(models.Model):
+    fertiliser = models.ForeignKey(FertiliserUser, null=True, on_delete=models.SET_NULL, related_name='replies')
+    quantity = models.DecimalField(max_digits=10, decimal_places=3)
+    application = models.ForeignKey(Application, null=True, on_delete=models.CASCADE, related_name='products_used')
 
     def application_finished(self):
         self.done_date = timezone.now()

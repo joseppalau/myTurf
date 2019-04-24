@@ -100,10 +100,17 @@
     display: flex;
     flex-direction: column;
     background: #efefef;
+    width: 100%;
 }
 
-.user-product-table div, user-applications-table div{
+.user-product-table div{
     display: flex;
+    align-items: center;
+}
+
+.applications-table-nc{
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
