@@ -86,15 +86,18 @@ class Application(models.Model):
     scheduled_date = models.DateTimeField(default=timezone.now)
     done_date = models.DateTimeField(null=True, blank=True)
 
+    def application_finished(self):
+        for i in range(len(self.products_used)):
+            self.products_used[i].fertiliser.stock -= self.products_used[i].quantity
+        self.save()
+
 
 class FertiliserInUse(models.Model):
     fertiliser = models.ForeignKey(FertiliserUser, null=True, on_delete=models.SET_NULL, related_name='replies')
     quantity = models.DecimalField(max_digits=10, decimal_places=3)
     application = models.ForeignKey(Application, null=True, on_delete=models.CASCADE, related_name='products_used')
 
-    def application_finished(self):
-        self.done_date = timezone.now()
-        self.save()
+
 
 
 

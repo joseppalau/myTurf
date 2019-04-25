@@ -58,12 +58,19 @@ def add_user_application(request):
         user = request.user
         units = 'Kg'
         field_id = request.POST.get('field_id')
-        type = request.POST.get('type')
+        type_ = request.POST.get('type')
         date = request.POST.get('date')
         quantity = 0
         products = request.POST.get('products')
+        products = products[2:-2].split('],[')
+        for i in range(len(products)):
+            print(products[i])
+            products[i] = products[i].replace('"', '').split(',')
+            print(products[i])
         print(products)
-        if type == 'Liquid':
+        assert type(products) == list
+
+        if type_ == 'Liquid':
             volum = request.POST.get('volum')
             units = 'L'
             quantity = int(volum)
@@ -74,7 +81,7 @@ def add_user_application(request):
         application = Application.objects.create(
             user=user,
             field=Field.objects.get(id=field_id),
-            type=type,
+            type=type_,
             units=units,
             quantity=quantity,
             scheduled_date=date
@@ -84,11 +91,11 @@ def add_user_application(request):
         for product in products:
             productInUse = FertiliserInUse.objects.create(
                 fertiliser=FertiliserUser.objects.get(id=product[0]),
-                quantity=int(product[1]),
+                quantity=float(product[1]),
                 application=application
             )
             productInUse.save()
-        json_response = {'field': application.field, 'type_': application.type, 'scheduled': application.scheduled_date}
+        json_response = {'field': application.field.name, 'type_': application.type, 'scheduled': application.scheduled_date}
         return HttpResponse(json.dumps(json_response), content_type='application/json')
     else:
         return HttpResponse(json.dumps({'Message': 'Nothing to return'}))
