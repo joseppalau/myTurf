@@ -3,44 +3,44 @@ from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup
 
-
-def simple_get(url):
-    try:
-        with closing(get(url, stream=True)) as resp:
-            if is_good_response(resp):
-                return resp
-            else:
-                return None
-    except RequestException as e:
-        log_error('Error during requests to {0} : {1}'.format(url, str(e)))
-        return None
+# granada code: SPXX0040:1:SP
 
 
-def is_good_response(resp):
-    content_type = resp.headers['Content-Type'].lower()
-    return (resp.status_code == 200
-            and content_type is not None
-            and content_type.find('html') > -1)
+class WeatherScrapper:
 
+    def __init__(self, code):
+        self.code = code
 
-def log_error(e):
-    print(e)
+    def simple_get(self, url):
+        try:
+            with closing(get(url, stream=True)) as resp:
+                if self.is_good_response(resp):
+                    return resp.content
+                else:
+                    return None
+        except RequestException as e:
+            self.log_error('Error during requests to {0} : {1}'.format(url, str(e)))
+            return None
 
+    def is_good_response(self, resp):
+        content_type = resp.headers['Content-Type'].lower()
+        return (resp.status_code == 200
+                and content_type is not None
+                and content_type.find('html') > -1)
 
-raw_html = get('https://weather.com/es-US/tiempo/10dias/l/SPXX0040:1:SP')
+    def log_error(self, e):
+        print(e)
 
-html = BeautifulSoup(raw_html.content, 'html.parser')
+    def icons_forecast(self):
+        response = self.simple_get(f'https://weather.com/es-US/tiempo/10dias/l/{self.code}')
+        html = BeautifulSoup(response, 'html.parser')
+        svgs = html.find_all('svg')
+        svgs_list = []
 
-section = html.find(id="main-DailyForecast-1bbda948-59cc-4040-9a36-d9c1ed37a806")
+        for svg in svgs[0:5]:
+            svgs_list.append((svg['class'][0]))
 
-trs = section.find_all('tr')[1:10]
-
-for tr in trs:
-    for td in tr.find_all('td'):
-        print(td.getText(), end=' | ')
-    print()
-
-
+        return svgs_list
 
 
 

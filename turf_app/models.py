@@ -14,6 +14,7 @@ class Field(models.Model):
     units_dimension = models.CharField(default='m2', max_length=20)
     city = models.CharField(max_length=100, blank=True, null=True)
     country = models.CharField(max_length=100, blank=True, null=True)
+    #city_weather_code = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name

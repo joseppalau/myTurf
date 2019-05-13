@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Fertiliser, FertiliserUser, Application, Field, FertiliserInUse
-from .forms import FertiliserUserForm, ApplicationUserForm
+from .forms import FertiliserUserForm
+from .weather import WeatherScrapper
 import json
 
 
@@ -11,17 +12,25 @@ def landing_page(request):
 
 def dashboard_page(request):
     user = request.user
+    #products
     fertilisers = user.fertilisers.all()
     liquidFertilisersNames = json.dumps([fertiliser.fertiliser.name for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Liquid'])
     liquidFertilisersIds = json.dumps([fertiliser.id for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Liquid'])
     solidFertilisersNames = json.dumps([fertiliser.fertiliser.name for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Granulate'])
     solidFertilisersIds = json.dumps([fertiliser.id for fertiliser in fertilisers if fertiliser.fertiliser.type == 'Granulate'])
     applications = user.applications.all()
+    #weather forecast icons
+    weather = WeatherScrapper('SPXX0040:1:SP')
+    icons_forecast = weather.icons_forecast()
+    for icon in icons_forecast:
+        print(icon)
+
     return render(request, 'turf_app/dashboard.html', {'user': user, 'fertilisers': fertilisers, 'liquidFertilisersNames': liquidFertilisersNames,
                                                        'liquidFertilisersIds': liquidFertilisersIds,
                                                        'solidFertilisersNames': solidFertilisersNames,
                                                        'solidFertilisersIds': solidFertilisersIds,
-                                                       'applications': applications})
+                                                       'applications': applications,
+                                                       'icons_forecast': icons_forecast})
 
 
 def market_page(request):
